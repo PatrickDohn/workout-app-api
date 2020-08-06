@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="http://localhost:4741"
-URL_PATH="/workout"
+URL_PATH="/workouts"
 
 curl "${API}${URL_PATH}/" \
   --include \
@@ -10,7 +10,7 @@ curl "${API}${URL_PATH}/" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "workout": {
-      "bodypart": "'"${BODYPART}"'"
+      "bodyPart": "'"${BODYPART}"'"
     }
   }'
 

@@ -19,8 +19,8 @@ const workoutSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  }
-  // liftsSchema: [liftsSchema]
+  },
+  liftsSchema: liftsSchema
 })
 
 const Workout = mongoose.model('Workout', workoutSchema)
