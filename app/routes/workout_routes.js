@@ -12,10 +12,11 @@ const Workout = require('./../models/workout')
 // Create
 router.post('/workouts', requireToken, (req, res, next) => {
   req.body.workout.owner = req.user.id
+  console.log(req.body.workout)
   const workout = req.body.workout
   Workout.create(workout)
     .then(workout => {
-      res.status(201).json({workout: workout.toObject()})
+      res.status(201).json({ workout: workout.toObject() })
     })
     .catch(next)
 })

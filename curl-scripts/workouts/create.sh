@@ -10,7 +10,11 @@ curl "${API}${URL_PATH}/" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "workout": {
-      "bodyPart": "'"${BODYPART}"'"
+      "bodyPart": "'"${BODYPART}"'",
+      "lift": "'"${LIFT}"'",
+      "weight": "'"${WEIGHT}"'",
+      "reps": "'"${REPS}"'",
+      "sets": "'"${SETs}"'"
     }
   }'
 
