@@ -11,7 +11,7 @@ const Workout = require('./../models/workout')
 
 // Create
 router.post('/workouts', requireToken, (req, res, next) => {
-  req.body.workout.owner = req.user.id
+  req.body.workout.owner = req.user._id
   console.log(req.body.workout)
   const workout = req.body.workout
   Workout.create(workout)
@@ -36,7 +36,7 @@ router.patch('/workouts/:id', requireToken, removeBlanks, (req, res, next) => {
 
 // INDEX
 router.get('/workouts', requireToken, (req, res, next) => {
-  Workout.find()
+  Workout.find({ owner: req.user.id })
     .then(workouts => {
       return workouts.map(workout => workout.toObject())
     })
@@ -57,6 +57,7 @@ router.delete('/workouts/:id', requireToken, (req, res, next) => {
   Workout.findById(req.params.id)
     .then(handle404)
     .then(workout => {
+      console.log(workout.owner, req.user._id)
       requireOwnership(req, workout)
       workout.deleteOne()
     })

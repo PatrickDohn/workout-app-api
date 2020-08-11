@@ -14,7 +14,7 @@ curl "${API}${URL_PATH}/" \
       "lift": "'"${LIFT}"'",
       "weight": "'"${WEIGHT}"'",
       "reps": "'"${REPS}"'",
-      "sets": "'"${SETs}"'"
+      "sets": "'"${SETS}"'"
     }
   }'
 
